@@ -1,9 +1,6 @@
 import React from "react";
 import Background from "./Background";
-import Instructions from "./Instructions";
-import Description from "./Description";
-import { gameDesc } from "../utils/Constants";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 function Home() {
   return (
@@ -14,13 +11,7 @@ function Home() {
           src={new URL("/assets/section.png", import.meta.url).href}
           alt="Game Info"
         />
-
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Description desc={gameDesc} />} />
-            <Route path="/instruction" element={<Instructions />} />
-          </Routes>
-        </BrowserRouter>
+        <Outlet/>
       </div>
     </Background>
   );

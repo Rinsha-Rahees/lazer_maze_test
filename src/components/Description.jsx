@@ -1,8 +1,24 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 
 function Description({ desc }) {
+
+  const [gameName, setGameName] = useState()
+
+  const gameData = async () => {
+    const data = await fetch(
+      "https://378027ioph.execute-api.ap-south-1.amazonaws.com/test/Users?id=ec14dcc2-304d-4052-a177-01d68dd6a952"
+    );
+    console.log(data);
+    const result = await data.json();
+    setGameName(result?.Game?.name)
+  };
+
+  useEffect(() => {
+    gameData();
+  }, []);
+
   return (
     <>
       <div className="relative w-fit -left-24 lg:-left-32 2xl:-left-56z-10">
@@ -23,8 +39,8 @@ function Description({ desc }) {
         />
       </div>
       <div className="relative lg:w-full h-fit 2xl:text-xl">
-        <h2 className="font-extrabold text-xl 2xl:text-3xl tracking-widest">
-          LASERTAG
+        <h2 className="font-extrabold text-3xl tracking-widest">
+          {gameName}
         </h2>
         <p className="font-extralight xl:mt-3 xl:leading-6">{desc}</p>
         <div className="flex flex-col xl:w-[60%] leading-5 my-4 xl:leading-10 xl:my-6">
@@ -41,7 +57,9 @@ function Description({ desc }) {
           <Link to={"/instruction"}>
             <Button>How to Play</Button>
           </Link>
-          <Button>Start Game</Button>
+          <Link to={"/startgame"}>
+            <Button>Start Game</Button>
+          </Link>
         </div>
       </div>
     </>
