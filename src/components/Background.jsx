@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-function Background({children}) {
+function Background({ children }) {
   return (
     <div className="flex items-center justify-center h-screen w-full bg-cover bg-[url('/assets/bg.png')]">
-       {children}
+      {children}
     </div>
-  )
+  );
 }
 
-export default Background
+export default Background;

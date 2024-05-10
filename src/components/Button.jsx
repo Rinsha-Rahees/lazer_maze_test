@@ -2,7 +2,7 @@ import React from "react";
 
 function Button({children}) {
   return (
-    <button className="relative top-0 left-0 w-fit">
+    <button className="relative top-0 left-0 w-full">
       <img
         className="w-32"
         src={new URL("/assets/button.png", import.meta.url).href}
@@ -13,6 +13,6 @@ function Button({children}) {
       </span>
     </button>
   );
-}
+} 
 
 export default Button;
