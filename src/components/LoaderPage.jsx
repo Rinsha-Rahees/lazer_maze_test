@@ -1,5 +1,4 @@
 import React from "react";
-import Background from "./Background";
 import { Vortex } from "react-loader-spinner";
 
 function LoaderPage() {
