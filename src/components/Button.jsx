@@ -2,7 +2,7 @@ import React from "react";
 
 function Button({children}) {
   return (
-    <button className="relative top-0 left-0 w-full">
+    <button className="relative top-0 left-0 w-full hover:animate-pulse">
       <img
         className="w-32"
         src={new URL("/assets/button.png", import.meta.url).href}
